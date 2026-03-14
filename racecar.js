@@ -69,7 +69,7 @@ let road = gameArea.getBoundingClientRect();
 if (player.isStart) {
 moveLines();
 moveOpponents(car);
-if (keys.ArrowUp && player.y > (road.top+70)) {player.y -= player.speed }
+if (keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
 if (keys.ArrowDown && player.y < (road.height - 75)) { player.y += player.speed }
 if (keys.ArrowRight && player.x < 350) { player.x += player.speed }
 if (keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
