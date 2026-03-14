@@ -1,6 +1,6 @@
 const score = document.querySelector('.score');
 const highScore = document.querySelector('.highScore');
-const startScreen = document.querySelector('.start Screen')
+const startScreen = document.querySelector('.startScreen')
 const gameArea = document.querySelector('.gameArea');
 const ClickToStart = document.querySelector('.ClickToStart');
 
@@ -36,7 +36,7 @@ window.requestAnimationFrame (Play);
 // creating the road lines
 for (i = 0; i < 5; i++) {
 let roadLines = document.createElement('div');
-roadlines.setAttribute('class', 'roadLines');
+roadLines.setAttribute('class', 'roadLines');
 roadLines.y = (i * 140);
 roadLines.style.top =  roadLines.y + "px";
 gameArea.appendChild(roadLines); }
@@ -69,7 +69,7 @@ let road = gameArea.getBoundingClientRect();
 if (player.isStart) {
 moveLines();
 moveOpponents(car);
-if (keys.Arrowup && player.y > (road.top+70)) {player.y -= player.speed }
+if (keys.ArrowUp && player.y > (road.top+70)) {player.y -= player.speed }
 if (keys.ArrowDown && player.y < (road.height - 75)) { player.y += player.speed }
 if (keys.ArrowRight && player.x < 350) { player.x += player.speed }
 if (keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
@@ -80,7 +80,7 @@ player.score++;
 player.speed += 0.01;
 if (player.highScore < player.score) {
 player.highScore++;
-highScore.innerHTML = "HighScore" + ":" + (player.highscore - 1);
+highScore.innerHTML = "HighScore" + ":" + (player.highScore - 1);
 highScore.style.top="80px"; }
   
 score.innerHTML = "Score" + ":" + (player.score - 1);
@@ -88,11 +88,11 @@ window.requestAnimationFrame(Play); }
 }
 
 function moveLines() {
-let roadlines = document.querySelectorAll('.roadlines');
+let roadLines = document.querySelectorAll('.roadlines');
 roadLines.forEach(function (item) {
-if (item.y>= 700)
+if (item.y >= 700)
 item.y -=700;
-item.y += player.speed:
+item.y += player.speed;
 item.style.top = item.y + "px";
 })
 }
@@ -103,7 +103,7 @@ Opponents.forEach(function (item) {
 if (isCollide(car, item)) {
 endGame(); }
 
-if item.y >= 750) {
+if (item.y >= 750) {
 item.y -= 900;
 item.style.left = Math.floor(Math.random() * 350) + "px"; }
 
@@ -116,7 +116,7 @@ item.style.top = item.y + "px";
 function isCollide(a,b) {
 aRect = a.getBoundingClientRect();
 bRect = b.getBoundingClientRect();
-return !((aRect.topbRect.bottom) || (aRect.bottom > bRect.top) ||
+return !((aRect.top > bRect.bottom) || (aRect.bottom > bRect.top) ||
 (aRect.right < bRect.left) || (aRect.left > bRect.right))
 }
 
