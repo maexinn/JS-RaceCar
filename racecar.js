@@ -88,7 +88,7 @@ window.requestAnimationFrame(Play); }
 }
 
 function moveLines() {
-let roadLines = document.querySelectorAll('.roadlines');
+let roadLines = document.querySelectorAll('.roadLines');
 roadLines.forEach(function (item) {
 if (item.y >= 700)
 item.y -=700;
@@ -112,11 +112,11 @@ item.style.top = item.y + "px";
 })
 }
 
-//check wether the cars collide or not
+//check whether the cars collide or not
 function isCollide(a,b) {
 aRect = a.getBoundingClientRect();
 bRect = b.getBoundingClientRect();
-return !((aRect.top > bRect.bottom) || (aRect.bottom > bRect.top) ||
+return !((aRect.top > bRect.bottom) || (aRect.bottom < bRect.top) ||
 (aRect.right < bRect.left) || (aRect.left > bRect.right))
 }
 
